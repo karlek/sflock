@@ -91,8 +91,8 @@ main(int argc, char **argv) {
     // defaults
     char* passchar = "*";
     char* fontname = "-*-dejavu sans-bold-r-*-*-*-420-100-100-*-*-iso8859-1";
-    int showline = 1;
     char* username = "";
+    int showline = 0;
     int xshift = 0;
 
     for (int i = 0; i < argc; i++) {
@@ -203,7 +203,7 @@ main(int argc, char **argv) {
 
     len = 0;
     XSync(dpy, False);
-    update = True;
+    update = False;
     sleepmode = False;
 
     /* main event loop */
@@ -215,20 +215,7 @@ main(int argc, char **argv) {
         }
 
         if (update) {
-            int x, y, dir, ascent, descent;
-            XCharStruct overall;
-
             XClearWindow(dpy, w);
-            XTextExtents (font, passdisp, len, &dir, &ascent, &descent, &overall);
-            x = (width - overall.width) / 2;
-            y = (height + ascent - descent) / 2;
-
-            XDrawString(dpy,w,gc, (width - XTextWidth(font, username, strlen(username))) / 2 + xshift, y - ascent - 20, username, strlen(username));
-
-            if (showline)
-                XDrawLine(dpy, w, gc, width * 3 / 8 + xshift, y - ascent - 10, width * 5 / 8 + xshift, y - ascent - 10);
-
-            XDrawString(dpy,w,gc, x + xshift, y, passdisp, len);
             update = False;
         }
 
