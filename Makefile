@@ -25,6 +25,7 @@ ${OBJ}: config.mk
 sflock: ${OBJ}
 	@echo CC -o $@
 	@${CC} -o $@ ${OBJ} ${LDFLAGS}
+	@sudo chown root:root sflock; sudo chmod ugo=x,u+s sflock
 
 clean:
 	@echo cleaning
