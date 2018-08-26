@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	config.mk	/^CC = cc$/;"	m
+CFLAGS	config.mk	/^CFLAGS = -std=c99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}$/;"	m
+CPPFLAGS	config.mk	/^CPPFLAGS = -DVERSION=\\"${VERSION}\\" -DHAVE_SHADOW_H$/;"	m
+INCS	config.mk	/^INCS = -I. -I\/usr\/include$/;"	m
+LDFLAGS	config.mk	/^LDFLAGS = -s ${LIBS}$/;"	m
+LIBS	config.mk	/^LIBS = -L\/usr\/lib -lc -lcrypt -lX11 -lXext$/;"	m
+OBJ	Makefile	/^OBJ = ${SRC:.c=.o}$/;"	m
+SLOCK_VERSION	config.mk	/^SLOCK_VERSION = 0.9$/;"	m
+SRC	Makefile	/^SRC = sflock.c$/;"	m
+VERSION	config.mk	/^VERSION = 0.1$/;"	m
+_XOPEN_SOURCE	sflock.c	2;"	d	file:
+die	sflock.c	/^static void die(const char* errstr, ...)$/;"	f	file:
+get_password	sflock.c	/^static const char* get_password()$/;"	f	file:
+go	Makefile	/^	@sudo chown root:root sflock; sudo chmod ugo=x,u+s sflock$/;"	m
+main	sflock.c	/^int main(int argc, char** argv)$/;"	f
